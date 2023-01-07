@@ -38,7 +38,7 @@ Install my-project with git from your bash terminal
 ```bash
   git clone https://github.com/akramhammam5/StudentGradngSystem
   cd StudentGradingSystem
-  python calculator.py
+  python Project.py
 ```
 Or download the ZIP file and just write:
 ```bash
