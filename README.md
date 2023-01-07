@@ -15,7 +15,7 @@ A CLI program to manage a Grading system for school students using python. This 
 To run this project just type the following command on your terminal.
 
 ```bash
-  python calculator.py
+  python Project.py
 ```
 
 
@@ -42,6 +42,6 @@ Install my-project with git from your bash terminal
 ```
 Or download the ZIP file and just write:
 ```bash
-  python calculator.py
+  python Project.py
 ```
 on the project's directory or folder.
