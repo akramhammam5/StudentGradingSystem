@@ -1,19 +1,40 @@
 import statistics as s
 from pip._vendor.distlib.compat import raw_input
-
+import os
 System = {}
 file = open("Added.txt","at+")
 file2 = open("Signup.txt","at+")
 
+
+
+def avg():
+    name = input("Student Name: ")
+    sum=0
+    with open("Added.txt", "r"):
+        lines = file.readlines()
+
+    with open("Added.txt", "w"):
+        for line in lines:
+            if name in line:
+                print(list(System.keys())
+                [list(System.values()).index(name)])
+                
+    
 def Enter(name,grade):
     System[name] = grade
     file.writelines(str(System))
     print(file.read())
     print()
-    file.close()
+    #file.close()
 
 def Remove(name):
-    System.pop(name)
+    with open("Added.txt", "r"):
+        lines = file.readlines()
+
+    with open("Added.txt", "w"):
+        for line in lines:
+            if line.strip("\n") != name:
+                file.write(line)
 
 def Exit():
     print("\nThank You for Using our system :)\n")
@@ -49,12 +70,10 @@ def Login():
     for line in lines:
         if uname in line:
             Main()
-        else:
-            print("you are not a registered")
-            f.close()
             break
 
 def Main():
+    os.system("clear")
     print("                      Welcome to Grade Central\n")
 
     print("[1] - Enter Grades")
@@ -70,9 +89,12 @@ def Main():
             grade = input("Grade: ")
             print("Adding Grade...")
             Enter(name,grade)
+           
     elif choice == '2':
             name = input("Student Name: ")
             Remove(name)
+    elif choice == '3':
+        avg()
     elif choice == '4':
             Show()
     elif choice == '5':
@@ -91,6 +113,7 @@ def Start():
     choice = input("What would you like to do? (Enter a number): ")
 
     if choice == '1':
+        os.system("clear")
         Login()
     elif choice == '2':
         SignUp()
