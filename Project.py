@@ -5,22 +5,20 @@ import os
 
 
 System = {}
-file = open("Added.txt","at+")
-file2 = open("Signup.txt","at+")
+file = open("./Added.txt","at+")
+file2 = open("./Signup.txt","at+")
 
 
 
 def avg():
     name = input("Student Name: ")
-    sum=0
-    with open("Added.txt", "r"):
+    with open("./Added.txt", "r"):
         lines = file.readlines()
-
-    with open("Added.txt", "w"):
         for line in lines:
             if name in line:
-                print(list(System.keys())
-                [list(System.values()).index(name)])
+                grade = System[line]
+                avgGrade = s.mean(grade)
+                print(name,"grades average are: ",avgGrade)
                 
     
 def Enter(name,grade):
@@ -31,10 +29,10 @@ def Enter(name,grade):
     #file.close()
 
 def Remove(name):
-    with open("Added.txt", "r"):
+    with open("./Added.txt", "r"):
         lines = file.readlines()
 
-    with open("Added.txt", "w"):
+    with open("./Added.txt", "w"):
         for line in lines:
             if line.strip("\n") != name:
                 file.write(line)
@@ -44,8 +42,8 @@ def Exit():
     quit()
 
 def Show():
-    print(file.read())
-
+    with open('./Added.txt', 'r') as f:
+        print(f.read())
 
 def SignUp():
     print("***********************************Sign Up*****************************************\n")
@@ -68,11 +66,14 @@ def Login():
 
     uname = raw_input("Username: ")
     password = raw_input ("Password: ")
-    f = open("Signup.txt", "r+")
+    f = open("./Signup.txt", "r+")
     lines = f.readlines()
     for line in lines:
         if uname in line:
             Main()
+            break
+        else:
+            print("You're not an Admin please call xxx xxx for more Information.")
             break
 
 def Main():
@@ -92,6 +93,7 @@ def Main():
             grade = input("Grade: ")
             print("Adding Grade...")
             Enter(name,grade)
+            Main()
            
     elif choice == '2':
             name = input("Student Name: ")
