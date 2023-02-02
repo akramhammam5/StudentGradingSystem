@@ -1,5 +1,5 @@
 # StudentGradingSystem
-A CLI program to manage a Grading system for school students using python. This is V1.0 without any GUI, i'll add a GUI on later Versions.
+A CLI program to manage a Grading system for school students using python. This is V1.0 without any GUI, i'll add a GUI on later Versions. V1.0 didn't include OOP, Error Handling or any exceptions. This version only include the basic functionalities implemented. V1.1 will include Error handling only. 
 
 
 
