@@ -9,6 +9,20 @@ file = open("./Added.txt","at+")
 file2 = open("./Signup.txt","at+")
 
 
+def Enter(name,grade):
+ with open("./Added.txt", "r"):
+    lines = file.readlines()
+    if name in lines:
+        System[name].append(grade)
+        file.writelines(System)
+        print(file.read())
+        print()
+    else:
+        System[name] = [grade]
+        file.writelines(System)
+        print(file.read())
+        print()
+
 
 def avg():
     name = input("Student Name: ")
@@ -16,17 +30,17 @@ def avg():
         lines = file.readlines()
         for line in lines:
             if name in line:
-                grade = System[line]
+                grade = System.get(name)
                 avgGrade = s.mean(grade)
-                print(name,"grades average are: ",avgGrade)
+                print(name,"grades average is: ",avgGrade)
                 
     
-def Enter(name,grade):
+'''def Enter(name,grade):
     System[name] = grade
     file.writelines(str(System))
     print(file.read())
     print()
-    #file.close()
+    #file.close()'''
 
 def Remove(name):
     with open("./Added.txt", "r"):
@@ -34,7 +48,7 @@ def Remove(name):
 
     with open("./Added.txt", "w"):
         for line in lines:
-            if line.strip("\n") != name:
+            if line.strip("/n") != name:
                 file.write(line)
 
 def Exit():
@@ -52,12 +66,13 @@ def SignUp():
     password = input ("Enter your password: ")
     file2.writelines("username: ")
     file2.writelines(uname)
-    file2.write("\n")
+    file2.write("; ")
     file2.writelines("password: ")
     file2.writelines(password)
-    file2.write("\n")
+    file2.write(" ")
     file.close()
     print("Thx for choosing our system :)")
+    os.system("clear")
     Login()
 
 
@@ -102,10 +117,12 @@ def Main():
         avg()
     elif choice == '4':
             Show()
+                                        
     elif choice == '5':
-            Exit()
+            exit()
     else:
             print("Invalid Input")
+            Main()
 
 
 def Start():
